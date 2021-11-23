@@ -8,4 +8,4 @@ jobs:
     
     steps:
     - name: testing 
-      run: echo "this is reusable workflow test!"name: testing reusable workflows
+      run: echo "this is reusable workflow test!"
