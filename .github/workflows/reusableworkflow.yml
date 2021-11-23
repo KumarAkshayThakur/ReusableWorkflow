@@ -4,8 +4,8 @@ on:
   workflow_call:
 jobs:
   build:
-    runs_on: ubuntu-latest
-    
+    runs-on: ubuntu-latest
     steps:
-    - name: testing 
-      run: echo "this is reusable workflow test!"
+      #- uses: actions/checkout@v2
+      - name: testing 
+        run: echo "this is reusable workflow test!"
