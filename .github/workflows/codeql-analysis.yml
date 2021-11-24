@@ -41,11 +41,14 @@ jobs:
       shell: bash   
 
     - name : Run JAVASCRIPT code source
-    #  run: |
-     #       if [[ "${{inputs.LANGUAGE}}" == "javascript" ]]; then            
-      uses: github/codeql-action/autobuild@v1
-      #      fi
-      #shell: bash        
+      run: |
+             if [[ "${{inputs.LANGUAGE}}" == "javascript" ]]; then            
+             cd ${{ inputs.MODULE_NAME }}
+             fi
+      shell: bash        
+      
+    #- name: Autobuild
+    #  uses: github/codeql-action/autobuild@v1  
       
     - name: Code Quality Analysis
       uses: github/codeql-action/analyze@v1
