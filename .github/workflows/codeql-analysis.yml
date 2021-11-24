@@ -11,13 +11,7 @@ on:
         description: "Language to scan"
         required: true
         type: string
-  push:
-    branches: [ main ]
-  pull_request:
-    # The branches below must be a subset of the branches above
-    branches: [ main ]
-  schedule:
-    - cron: '19 7 * * 0'
+
 
 jobs:
   analyze:
