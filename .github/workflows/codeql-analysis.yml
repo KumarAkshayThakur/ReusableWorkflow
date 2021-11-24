@@ -49,7 +49,7 @@ jobs:
     - name : Run JAVASCRIPT code source
       run: |
             if [[ "${{inputs.LANGUAGE}}" == "javascript" ]]; then             
-               cd ${{ inputs.MODULE_NAME }}/src/app
+               uses: github/codeql-action/autobuild@v1
             fi
       shell: bash        
     - name: Code Quality Analysis
