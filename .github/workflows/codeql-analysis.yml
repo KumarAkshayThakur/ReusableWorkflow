@@ -6,9 +6,11 @@ on:
       MODULE_NAME:
         description: "Module to scan"
         required: true
+        type: string
       LANGUAGE:
         description: "Language to scan"
         required: true
+        type: string
   push:
     branches: [ main ]
   pull_request:
