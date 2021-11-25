@@ -20,6 +20,8 @@ jobs:
         run: |
              pwd
              npm install -g jscrambler
+             npm run build
+             npm run start
         
 
 
