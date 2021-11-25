@@ -1,6 +1,16 @@
 name: JscramblerTest
 on:
   workflow_call:
+    inputs:
+        MODULE_NAME:
+          description: "Module to scan"
+          required: true
+          type: string
+        LANGUAGE:
+          description: "Language to scan"
+          required: true
+          type: string
+
 jobs:
   build:
     runs-on: ubuntu-latest
