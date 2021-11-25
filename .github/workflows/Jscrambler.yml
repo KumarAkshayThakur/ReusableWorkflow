@@ -22,7 +22,7 @@ jobs:
              npm i
              npm install -g jscrambler
              npm run build
-             npm run start
+           
         
 
 
