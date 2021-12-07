@@ -1,15 +1,12 @@
 name: JscramblerTest
 on:
   workflow_call:
- #   inputs:
- #       MODULE_NAME:
- #         description: "Module to scan"
- #         required: true
- #         type: string
- #       LANGUAGE:
- #         description: "Language to scan"
- #         required: true
- #         type: string
+    secrets:
+        data:
+          required: true
+        data1:
+          required: true  
+
 
 jobs:
   build:
@@ -22,6 +19,11 @@ jobs:
              npm i
              npm install -g jscrambler
              npm run build
+      - uses: ./
+        with: 
+          host: ${{ secrets.data }}
+          login: ${{ secrets.data1 }}
+          
            
         
 
