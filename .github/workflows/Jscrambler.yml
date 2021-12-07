@@ -2,9 +2,9 @@ name: JscramblerTest
 on:
   workflow_call:
     secrets:
-        data:
+        test1:
           required: true
-        data1:
+        test2:
           required: true  
 
 
@@ -21,8 +21,8 @@ jobs:
              npm run build
       - uses: ./
         with: 
-          host: ${{ secrets.data }}
-          login: ${{ secrets.data1 }}
+          host: ${{ secrets.test1 }}
+          login: ${{ secrets.test2 }}
           
            
         
