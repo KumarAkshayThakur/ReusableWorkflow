@@ -1,0 +1,5 @@
+- name: Get Pokemon name
+  uses: ./customaction/ 
+  id: pokemon
+  with:
+    pokemon_id: 150
