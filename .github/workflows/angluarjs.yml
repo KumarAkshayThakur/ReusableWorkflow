@@ -1,10 +1,35 @@
 on:
   workflow_call:
+    inputs:
+      MODULE_NAME:
+        description: "Module to use"
+        required: true
+        type: string
 jobs:
   installbuildpack:
     runs-on: ubuntu-latest
     steps:
-      - name: Install buildpack
-        run: |
+    - name: Install AngularJS
+      run: |
+        npm install -g @angular/cli
+      working-directory: ./${{ inputs.MODULE_NAME }}
+      shell: bash
+    - name: Install Dependencies
+      run: |
+        npm install --save-dev @angular/cli
+      working-directory: ./${{ inputs.MODULE_NAME }}
+      shell: bash
+    - name: Build
+      run: ng build --base-href ./
+      working-directory: ./${{ inputs.MODULE_NAME }}
+      shell: bash
+    - name: Copy result
+      run: cp -r -v ./${{ inputs.MODULE_NAME }}/dist/* ./${{ inputs.MODULE_NAME }}/deploy/public
+      shell: bash
+    - name: Display files in public folder
+      run: ls -ltra ./${{ inputs.MODULE_NAME }}/deploy/public
+      shell: bash
+    - name: Install buildpack
+      run: |
              (curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.19.0/pack-v0.19.0-linux.tgz" | sudo tar -C /usr/local/bin/ --no-same-owner -xzv pack)
-        shell: bash
+      shell: bash
