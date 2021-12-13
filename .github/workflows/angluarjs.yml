@@ -1,0 +1,10 @@
+on:
+  workflow_call:
+jobs:
+  installbuildpack:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install buildpack
+          run: |
+            (curl -sSL "https://github.com/buildpacks/pack/releases/download/v0.19.0/pack-v0.19.0-linux.tgz" | sudo tar -C /usr/local/bin/ --no-same-owner -xzv pack)
+          shell: bash
